@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#071b19"><title>Velvet North — Blackjack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div class="ambient"><div class="glow glow-a"></div><div class="glow glow-b"></div><div class="grain"></div></div>
+<header class="site-header">
+ <a class="brand" href="#" aria-label="Velvet North home"><span class="brand-icon">♠</span><span><b>VELVET NORTH</b><small>PRIVATE BLACKJACK CLUB</small></span></a>
+ <div class="header-right"><span class="live-dot"></span><span>LIVE TABLES</span><i></i><span>UP TO 30 ROOMS</span></div>
+</header>
+<main>
+<section id="lobby" class="lobby glass">
+ <div class="lobby-emblem">♠</div><div class="eyebrow">WELCOME TO THE CLUB</div>
+ <h1>Take your seat.<br><em>Play your hand.</em></h1>
+ <p class="intro">A private blackjack room for you and your friends. No pressure. Just cards, chips, and good company.</p>
+ <div class="lobby-avatar-row"><div id="lobbyAvatar" class="avatar-preview small-preview"></div><div><b id="lobbyAvatarName">Your look, your seat.</b><small>Make your character yours</small></div><button id="choosePhotoBtn" class="btn btn-outline">Choose from gallery</button><input id="avatarFile" type="file" accept="image/*" hidden></div>
+ <div class="lobby-fields">
+  <label class="field">TABLE NAME<input id="playerName" maxlength="18" placeholder="Your name" autocomplete="off"></label>
+  <label class="field">ROOM CODE<input id="roomCode" maxlength="12" placeholder="Create or enter a code" autocomplete="off"></label>
+ </div>
+ <div class="room-settings">
+  <label class="check-line"><input id="privateRoom" type="checkbox"> Make my table private</label>
+  <label class="field room-password-field" id="roomPasswordWrap">PRIVATE ROOM PASSWORD (IF NEEDED)<input id="roomPassword" type="password" maxlength="32" placeholder="Enter password when joining a private table" autocomplete="new-password"></label>
+ </div>
+ <div class="join-actions"><button id="hostBtn" class="btn btn-gold">Create a table <span>↗</span></button><button id="joinBtn" class="btn btn-outline">Join by code</button></div>
+ <section class="room-browser"><div class="room-browser-head"><div><div class="eyebrow">LIVE TABLE DIRECTORY</div><b>Find a table</b></div><button id="refreshRooms" class="btn btn-outline">↻ Refresh</button></div><div id="roomList" class="room-list"><p class="directory-empty">Connect to the game server to discover open tables.</p></div><small class="directory-foot">Up to 30 active tables · Private tables require an invitation and password.</small></section>
+ <div class="lobby-meta"><span>♧ 250,000 starting chips</span><span>Virtual chips only · No real money</span></div>
+</section>
+<section id="game" class="game hidden">
+ <div class="game-top"><div><div class="eyebrow">YOUR PRIVATE ROOM</div><h2>Velvet <em>Blackjack</em></h2></div><div class="round-pill"><small>ROUND</small><b id="roundNo">0</b></div></div>
+ <div class="table-shell">
+  <div class="table-rail"></div>
+  <div class="felt">
+   <div class="felt-brand">VELVET NORTH <span>♠</span> BLACKJACK</div>
+   <div class="dealer-zone">
+    <div class="dealer-profile"><div class="dealer-avatar">♛</div><div><b>THE DEALER</b><small>HOUSE</small></div></div>
+    <div id="dealerCards" class="hand-cards dealer-cards"></div>
+    <div id="dealerTotal" class="hand-total"></div>
+   </div>
+   <div class="table-center">
+    <div class="table-message" id="tableMessage">Waiting for players to take their seats…</div>
+    <div class="pot">
+     <span class="pot-caption">THE POT</span><div class="pot-chips" id="potChips"></div><strong id="potTotal">0</strong>
+    </div>
+   </div>
+   <div class="players-grid" id="playersGrid"></div>
+   <div class="felt-footer"><span>♠ &nbsp; 21 WINS</span><span>GOOD LUCK, HAVE FUN</span><span>21 &nbsp; ♠</span></div>
+  </div>
+ </div>
+ <section class="player-console">
+  <div class="wallet"><div class="wallet-icon">◈</div><div><small>YOUR BALANCE</small><strong id="myBalance">250,000</strong></div></div>
+  <div class="bet-console"><label for="betAmount">YOUR BET</label><div class="bet-entry"><span>◈</span><input id="betAmount" type="number" min="1" step="1" value="1000" inputmode="numeric" autocomplete="off"><button id="betBtn" class="btn btn-gold bet-btn">Place bet</button></div></div>
+  <div class="action-console"><button id="hitBtn" class="btn btn-action">Hit</button><button id="standBtn" class="btn btn-action">Stand</button><button id="doubleBtn" class="btn btn-action">Double</button><button id="startBtn" class="btn btn-gold start-btn">Deal cards</button></div>
+ </section>
+ <div class="table-info"><span id="playerCount">0 / 12 seats</span><span id="connectionStatus">Connecting…</span><button id="copyRoom" class="text-btn">ROOM <b id="roomLabel">—</b> · COPY CODE</button></div>
+</section>
+<div id="notice" class="notice hidden" role="status"></div>
+<div id="loadingScreen" class="loading-screen" aria-live="polite"><div class="loading-mark">♠</div><div class="loading-brand">VELVET NORTH</div><div class="loading-sub">PRIVATE BLACKJACK CLUB</div><div class="loading-track"><span></span></div><div id="loadingText" class="loading-text">Preparing your seat…</div></div>
+</main>
+<footer>VELVET NORTH <span>♠</span> THE TABLE IS YOURS</footer>
+<script src="config.js"></script>
+<script src="game.js"></script>
+</body></html>
